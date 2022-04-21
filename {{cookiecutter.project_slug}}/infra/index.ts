@@ -45,7 +45,7 @@ const pb = new kx.PodBuilder({
 //   serviceAccountName: baseStack.requireOutput('modelsServiceAccountName'),
 // });
 
-const deployment = new kx.Deployment('app-{{cookiecutter.project_slug}}-serving', {
+const deployment = new kx.Deployment('{{cookiecutter.project_slug}}-serving', {
   spec: pb.asDeploymentSpec() 
 }, { provider: provider });
 
