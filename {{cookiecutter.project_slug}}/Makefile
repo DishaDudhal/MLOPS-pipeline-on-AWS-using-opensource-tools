@@ -11,11 +11,11 @@ install-deps:
 	sudo pip3 install poetry --upgrade
 	poetry install
 
-dvc-pull:
-	poetry run dvc --cd data/ pull
-
 train:
 	poetry run train
+
+dvc-pull:
+	poetry run dvc --cd data/ pull
 
 deploy: dvc-pull
 	$(PULUMI_CMD) stack init $(STACK_NAME) || true

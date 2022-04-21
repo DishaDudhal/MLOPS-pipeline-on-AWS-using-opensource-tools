@@ -1,5 +1,5 @@
 {
-    "name": "my-model-infra",
+    "name": "{{cookiecutter.project_slug}}-infra",
     "devDependencies": {
         "@types/node": "^14"
     },
