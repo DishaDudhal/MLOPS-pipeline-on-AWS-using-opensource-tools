@@ -14,6 +14,13 @@ jobs:
         run: make install-deps
         working-directory: ./my_model
 
+      - name: Run Pulumi
+        run: make run-pulumi
+        working-directory: ./my_model/infra
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }} 
+
+
       - name: Deploy
         run: make deploy
         working-directory: ./my_model
@@ -22,6 +29,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-west-2
           AWS_ECR_ACCOUNT_URL: ${{ secrets.AWS_ECR_ACCOUNT_URL }}
-          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }} 
           
           
