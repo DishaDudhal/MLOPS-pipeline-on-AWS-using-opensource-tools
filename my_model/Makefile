@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-STACK_NAME=DishaDudhal/my-model-infra/dev
+STACK_NAME=dev
 BASE_STACK_NAME=DishaDudhal/ml-infra/dev
 PULUMI_CMD=pulumi --non-interactive --stack $(STACK_NAME) --cwd infra/
 
