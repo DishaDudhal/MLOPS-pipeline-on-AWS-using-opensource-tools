@@ -1,5 +1,5 @@
 FROM python:3.8-slim
-WORKDIR /my_model
+WORKDIR /{{cookiecutter.project_slug}}
 STOPSIGNAL SIGINT
 
 ENV LISTEN_PORT 80
@@ -16,5 +16,5 @@ RUN poetry install --no-interaction --no-ansi --no-dev
 
 COPY . .
 
-WORKDIR /my_model/src
-ENTRYPOINT uvicorn my_model.serving.__main__:app --host 0.0.0.0 --port $LISTEN_PORT --workers 2
+WORKDIR /{{cookiecutter.project_slug}}/src
+ENTRYPOINT uvicorn {{cookiecutter.module_name}}.serving.__main__:app --host 0.0.0.0 --port $LISTEN_PORT --workers 2

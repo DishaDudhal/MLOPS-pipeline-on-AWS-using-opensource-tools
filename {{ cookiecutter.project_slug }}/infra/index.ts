@@ -4,33 +4,32 @@ import * as k8s from '@pulumi/kubernetes';
 import * as kx from '@pulumi/kubernetesx';
 import TraefikRoute from './TraefikRoute';
 
-//Build and Push Docker image
-const repo = new awsx.ecr.Repository("my-model");
-const appImage = repo.buildAndPushImage(`../`);
 
 //Connect to the previously created infrastructrue 
 //Read base Pulumi projects
 const config = new pulumi.Config();
-const baseStack = new pulumi.StackReference('DishaDudhal/ml-infra/dev')
+const baseStack = new pulumi.StackReference(config.require('baseStackName'))
 
 const provider = new k8s.Provider('provider', {
   kubeconfig: baseStack.requireOutput('kubeconfig'),
 })
 
-// const image = awsx.ecr.buildAndPushImage('{{cookiecutter.project_slug}}-image', {
-//   context: '../',
-// });
+//Build and push docker image
+const image = awsx.ecr.buildAndPushImage('{{cookiecutter.project_slug}}-image', {
+  context: '../',
+});
 
 const pb = new kx.PodBuilder({
     containers: [{
-        image: appImage,
+        image: image.imageValue,
         ports: {"http": 80},
         env: {
+            'LISTEN_PORT': '80',
             "MLFLOW_TRACKING_URI": "http://a3157ff74eea1473ea35353d2d9e1886-1998414389.us-west-2.elb.amazonaws.com/mlflow",
             'MLFLOW_RUN_ID': config.require('runID'),
         },
     }],
-    serviceAccountName: baseStack.getOutput('modelsServiceAccount'),
+    serviceAccountName: baseStack.requireOutput('modelsServiceAccount'),
 });
 
 // const podBuilder = new kx.PodBuilder({
@@ -46,7 +45,7 @@ const pb = new kx.PodBuilder({
 //   serviceAccountName: baseStack.requireOutput('modelsServiceAccountName'),
 // });
 
-const deployment = new kx.Deployment('app-kx', {
+const deployment = new kx.Deployment('app-{{cookiecutter.project_slug}}-serving', {
   spec: pb.asDeploymentSpec() 
 }, { provider: provider });
 
@@ -54,8 +53,8 @@ const service = deployment.createService();
 
 
 // Expose model in Traefik 
-new TraefikRoute('my-model-route', {
-  prefix: '/models/my-model',
+new TraefikRoute('{{cookiecutter.project_slug}}', {
+  prefix: '/models/{{cookiecutter.project_slug}}',
   service: service,
   namespace: 'default',
 }, { provider: provider });

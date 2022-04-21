@@ -11,11 +11,13 @@ install-deps:
 	sudo pip3 install poetry --upgrade
 	poetry install
 
-train:
+dvc-pull:
+	poetry run dvc --cd data/ pull
+
+train: dvc-pull
 	poetry run train
 
-deploy:
-	cd infra
+deploy: dvc-pull
 	$(PULUMI_CMD) stack init $(STACK_NAME) || true
 	$(PULUMI_CMD) config set aws:region $(AWS_REGION)
 	$(PULUMI_CMD) config set baseStackName $(BASE_STACK_NAME)
