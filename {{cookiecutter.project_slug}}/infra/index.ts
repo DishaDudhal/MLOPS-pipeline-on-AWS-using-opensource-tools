@@ -8,7 +8,7 @@ import TraefikRoute from './TraefikRoute';
 //Connect to the previously created infrastructrue 
 //Read base Pulumi projects
 const config = new pulumi.Config();
-const baseStack = new pulumi.StackReference(config.require('baseStackName'));
+const baseStack = new pulumi.StackReference(config.require('baseStackName'))
 
 const provider = new k8s.Provider('provider', {
   kubeconfig: baseStack.requireOutput('kubeconfig'),
