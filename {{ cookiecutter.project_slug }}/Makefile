@@ -14,7 +14,7 @@ install-deps:
 dvc-pull:
 	poetry run dvc --cd data/ pull
 
-train: dvc-pull
+train:
 	poetry run train
 
 deploy: dvc-pull
