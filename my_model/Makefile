@@ -14,9 +14,6 @@ install-deps:
 train:
 	poetry run train
 
-run-pulumi:
-	$(PULUMI_CMD) config set --secret PULUMI_ACCESS_TOKEN $(PULUMI_ACCESS_TOKEN)
-
 deploy:
 	$(PULUMI_CMD) stack init $(STACK_NAME) || true
 	$(PULUMI_CMD) config set aws:region $(AWS_REGION)
