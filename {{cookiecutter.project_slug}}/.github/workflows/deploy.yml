@@ -12,11 +12,11 @@ jobs:
 
       - name: Install dependencies
         run: make install-deps
-        working-directory: ./{{cookiecutter.project_slug}}
+        working-directory: ./{{cookiecutter.module_name}}
 
       - name: Deploy
         run: make deploy
-        working-directory: ./{{cookiecutter.project_slug}}
+        working-directory: ./{{cookiecutter.module_name}}
         env:
           AWS_ACCESS_KEY_ID: {% raw %}${{ secrets.AWS_ACCESS_KEY_ID }}{% endraw %}
           AWS_SECRET_ACCESS_KEY: {% raw %}${{ secrets.AWS_SECRET_ACCESS_KEY }}{% endraw %}
