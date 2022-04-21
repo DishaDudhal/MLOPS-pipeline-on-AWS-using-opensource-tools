@@ -1,0 +1,5 @@
+[core]
+    remote = s3
+    autostage = true
+['remote "s3"']
+    url = s3://data-storage-800b22b
