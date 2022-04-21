@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "my_model"
+version = "0.1.0"
+description = ""
+authors = ["DishaDudhal <dishadudhal@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+mlflow = "^1.17.0"
+lightgbm = "^3.2.1"
+matplotlib = "^3.4.2"
+scikit-learn = "^0.24.2"
+boto3 = "1.17.49"
+fastapi = "^0.65.1"
+uvicorn = "^0.14.0"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.scripts]
+train = "src.my_model.training.train:main"
+serve = "src.my_model.serving.main:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
