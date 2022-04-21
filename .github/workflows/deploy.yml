@@ -16,7 +16,7 @@ jobs:
 
       - name: Run Pulumi
         run: make run-pulumi
-        working-directory: ./my_model/infra
+        working-directory: ./my_model
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }} 
 
