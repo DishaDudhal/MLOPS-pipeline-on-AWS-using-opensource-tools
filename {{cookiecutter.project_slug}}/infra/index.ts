@@ -8,7 +8,7 @@ import TraefikRoute from './TraefikRoute';
 //Connect to the previously created infrastructrue 
 //Read base Pulumi projects
 const config = new pulumi.Config();
-const baseStack = new pulumi.StackReference(config.require('baseStackName'))
+const baseStack = new pulumi.StackReference(config.require('baseStackName'));
 
 const provider = new k8s.Provider('provider', {
   kubeconfig: baseStack.requireOutput('kubeconfig'),
@@ -46,8 +46,8 @@ const pb = new kx.PodBuilder({
 // });
 
 const deployment = new kx.Deployment('{{cookiecutter.project_slug}}-serving', {
-  spec: pb.asDeploymentSpec() 
-}, { provider: provider });
+  spec: pb.asDeploymentSpec({replicas : 3}) 
+}, { provider });
 
 const service = deployment.createService();
 
@@ -55,6 +55,6 @@ const service = deployment.createService();
 // Expose model in Traefik 
 new TraefikRoute('{{cookiecutter.project_slug}}', {
   prefix: '/models/{{cookiecutter.project_slug}}',
-  service: service,
+  service,
   namespace: 'default',
-}, { provider: provider });
+}, { provider, dependsOn: [service] });
