@@ -13,7 +13,7 @@ scikit-learn = "^0.24.2"
 boto3 = "1.17.49"
 fastapi = "^0.65.1"
 uvicorn = "^0.14.0"
-dvc = {extras = ["s3"], version = "^2.3.0"}
+dvc = {extras = ["s3"], version = ">=2.1.0 && <=2.4.6"}
 
 
 [tool.poetry.dev-dependencies]
