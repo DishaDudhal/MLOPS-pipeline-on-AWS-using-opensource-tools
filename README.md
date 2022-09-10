@@ -40,4 +40,5 @@ If you have any queries regarding this project please contact the person on thei
 
 <hr> 
 <h1> Referrences </h1>
-https://www.aporia.com/blog/building-an-ml-platform-from-scratch/
+https://www.aporia.com/blog/building-an-ml-platform-from-scratch/ <br/>
+https://www.pulumi.com/docs/get-started/aws/deploy-stack/ <br/>
