@@ -31,7 +31,7 @@ Any secrets/ passwords which are a sensitive information is stored under Secrets
 <hr>
 <h2> Things to keep in Mind </h1>
 The github secrets needed for this project are :
-1. ![image]![alt text](https://user-images.githubusercontent.com/46836289/172740173-1fffa02c-9d7b-4f68-b033-be726c647f55.png)
+1. ![image](https://user-images.githubusercontent.com/46836289/172740173-1fffa02c-9d7b-4f68-b033-be726c647f55.png)
 2. As you see in the above image, you need to configure the following secret into your forked Github repo secrets. 
 3. Please be careful with the naming conventions, as these are environment variables and they are used in your Pipeline.
 4. You are free to modify the code in, to incorporate the database of your choice. In this project we have used RDS - t3 medium
