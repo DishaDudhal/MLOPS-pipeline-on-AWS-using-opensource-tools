@@ -1,4 +1,4 @@
-# model-template
+# ML-OPS Pipeline from Scratch using open-source tools 
 This is a ML-OPS Pipeline template with Github Actions for ML related projects.
 
 <hr>
