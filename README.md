@@ -2,6 +2,19 @@
 This is a ML-OPS Pipeline template with Github Actions for ML related projects.
 
 <hr>
+<h1> Open Source Tools Used to setup the pipeline </h1>
+1. Pulumi - infrastructre deployment
+2. MLFlow - ML pipeline
+3. Trafeik - Reverse proxy and Load balancing
+4. Aporia - ML pipeline montiroing
+5. Poetry - dependency management and packaging
+6. Github Actions - CI/CD
+7. AWS(S3, RDS and EKS) - Cloud provider and infrasturcture deployment.
+8. Cookiecutter - A cross-platform command-line utility that creates projects from project templates mentioned in the cookicutter slug
+9. DVC Storage - Model versioning
+10. Fast API - Model Serving.
+
+<hr>
 <h1>Steps to start an ML-Ops pipeline for your ML model</h1>
 To use this project, clone the repository in the following manner:
 1. Clone/Fork this repository, note that any of your ML model secrets need to be configured as Secrets into your organizations Github Account. If you dont have an 
@@ -24,3 +37,7 @@ The github secrets needed for this project are :
 4. You are free to modify the code in, to incorporate the database of your choice. In this project we have used RDS - t3 medium
 
 If you have any queries regarding this project please contact the person on their specified email ID.
+
+<hr> 
+<h1> Referrences </h1>
+https://www.aporia.com/blog/building-an-ml-platform-from-scratch/
