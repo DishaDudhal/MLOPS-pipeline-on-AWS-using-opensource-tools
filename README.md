@@ -3,16 +3,16 @@ This is a ML-OPS Pipeline template with Github Actions for ML related projects.
 
 <hr>
 <h1> Open Source Tools Used to setup the pipeline </h1>
-1. Pulumi - infrastructre deployment \n
-2. MLFlow - ML pipeline \n
-3. Trafeik - Reverse proxy and Load balancing \n
-4. Aporia - ML pipeline montiroing \n
-5. Poetry - dependency management and packaging \n
-6. Github Actions - CI/CD \n
-7. AWS(S3, RDS and EKS) - Cloud provider and infrasturcture deployment. \n
-8. Cookiecutter - A cross-platform command-line utility that creates projects from project templates mentioned in the cookicutter slug. \n
-9. DVC Storage - Model versioning. \n
-10. Fast API - Model Serving. \n
+1. Pulumi - infrastructre deployment.  
+2. MLFlow - ML pipeline.  
+3. Trafeik - Reverse proxy and Load balancing.  
+4. Aporia - ML pipeline montiroing.  
+5. Poetry - dependency management and packaging.   
+6. Github Actions - CI/CD.  
+7. AWS(S3, RDS and EKS) - Cloud provider and infrasturcture deployment.  
+8. Cookiecutter - A cross-platform command-line utility that creates projects from project templates mentioned in the cookicutter slug.  
+9. DVC Storage - Model versioning.  
+10. Fast API - Model Serving.  
 
 <hr>
 <h1>Steps to start an ML-Ops pipeline for your ML model</h1>
